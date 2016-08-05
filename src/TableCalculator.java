@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableCalculator {
-  private List<Integer> mNumbersOfTable;
-  private List<Integer> mNextNumbers;
+  private final List<Integer> mNumbersOfTable;
+  private final List<Integer> mNextNumbers;
 
   private int nextNumbersIterator = 0;
   private int previousNumber;
@@ -15,6 +15,9 @@ public class TableCalculator {
   }
 
   public void init(int tableNumber) {
+    if (tableNumber == 0) {
+      return;
+    }
     mNumbersOfTable.add(tableNumber);
     previousNumber = currentNumber;
     currentNumber = tableNumber;
